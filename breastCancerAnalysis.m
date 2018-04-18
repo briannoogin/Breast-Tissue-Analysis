@@ -1,8 +1,9 @@
+
 for image_idx = 4:4
     img_name = 'b_1_';
     img_num = num2str(image_idx);
     jpg = '.jpg';
-    filePath = strcat(img_name,img_num,jpg);
+    filePath = strcat('images/',img_name,img_num,jpg);
     img = imread(filePath);
     % convert rgb image to hsv color space
     lab_img = rgb2lab(img);
@@ -46,7 +47,7 @@ for image_idx = 4:4
     nuclei_image = segmented_images{nuclei_idx};
     % isolate non-nuclei 
     nuclei_image(nuclei_labels ~= 0) = 0;
-    newFilePath = strcat(img_name,img_num,'nuclei_isolated',jpg);
+    newFilePath = strcat('output/',img_name,img_num,'nuclei_isolated',jpg);
     % this imwrite is for k-means segmented images
     %imwrite(segmented_images{nuclei_idx},newFilePath);
     % this imwrite is for nuceli
