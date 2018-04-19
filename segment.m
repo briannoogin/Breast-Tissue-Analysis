@@ -1,4 +1,4 @@
-function segmented_img = segment(img)
+function [segmented_img,pixel_labels,nuclei_idx] = segment(img)
     % convert rgb image to hsv color space
     lab_img = rgb2lab(img);
     % isolate the colors from lab by taking only ab

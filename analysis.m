@@ -5,7 +5,10 @@ for image_idx = 4:4
     jpg = '.jpg';
     filePath = strcat('images/',img_name,img_num,jpg);
     img = imread(filePath);
-    segmented = segment(img);
+    rows = size(img,1);
+    col = size(img,2);
+    % segment the nuceli 
+    [segmented,pixel_labels,nuclei_idx] = segment(img);
     lab_segmented = rgb2lab(segmented);
     % isolate the l dimension from the nuceli
     l_dim = lab_segmented(:,:,1);
